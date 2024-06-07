@@ -1,0 +1,3 @@
+results/geckodriver
+results/geckodriver.exe
+results/geckodriver.log
