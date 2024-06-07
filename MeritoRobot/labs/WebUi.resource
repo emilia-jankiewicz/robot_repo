@@ -38,17 +38,17 @@ Login To Page
     
 Login To Website Using Wrong Credentials
     [Documentation]    This keyword logs to page using wrong credentials and waits for error messsage
-     [Arguments]     ${expectedExpression}=Invalid credentials     ${username}=invalid     ${password}=invalid 
-     Wait For Element    ${SUBMIT_BUTTON}     
-     Login To Page    ${username}    ${password}     
-     Wait For Text     ${expectedExpression}
+    [Arguments]     ${expectedExpression}=Invalid credentials     ${username}=invalid     ${password}=invalid 
+    Wait For Element    ${SUBMIT_BUTTON}     
+    Login To Page    ${username}    ${password}     
+    Wait For Text     ${expectedExpression}
 
 Succesful Login To Website
-     [Documentation]     This keyword logs to website and checks login by waiting for certain text on the website
-     [Arguments]     ${element}=Dashboard    ${username}=Admin    ${password}=admin123
-     Wait For Element    ${SUBMIT_BUTTON}     
-     Login To Page    ${username}    ${password}     
-     Wait For Text    ${element}
+    [Documentation]     This keyword logs to website and checks login by waiting for certain text on the website
+    [Arguments]     ${element}=Dashboard    ${username}=Admin    ${password}=admin123
+    Wait For Element    ${SUBMIT_BUTTON}     
+    Login To Page    ${username}    ${password}     
+    Wait For Text    ${element}
 
 Count elements
     [Documentation]     This keyword counts elements of certain kind determined by their locator
@@ -58,15 +58,15 @@ Count elements
     RETURN     ${countedElements}
 
 Count And Check Dashboard Widgets
-     [Documentation]     This keyword iterates through a list of counted widgets and compares
-     ...    list of their names with a given list of expected names
-     [Arguments]    ${widgetHeader}=//div[@class="orangehrm-dashboard-widget-header"]
-     ${countedWidgets}     Count elements    ${widgetHeader}
-     ${countedWidgets}  Evaluate     ${countedWidgets}+1
-     VAR     @{dashboardWidgets}
-     FOR     ${i}    IN RANGE    1    ${countedWidgets}
-      ${widgetName}    Get Text    //div[contains(@class, "orangehrm-dashboard-grid")]/div[${i}]//div/div[@class="orangehrm-dashboard-widget-header"]
-      Append To List    ${dashboardWidgets}    ${widgetName}
+    [Documentation]     This keyword iterates through a list of counted widgets and compares
+    ...    list of their names with a given list of expected names
+    [Arguments]    ${widgetHeader}=//div[@class="orangehrm-dashboard-widget-header"]
+    ${countedWidgets}     Count elements    ${widgetHeader}
+    ${countedWidgets}  Evaluate     ${countedWidgets}+1
+    VAR     @{dashboardWidgets}
+    FOR     ${i}    IN RANGE    1    ${countedWidgets}
+        ${widgetName}    Get Text    //div[contains(@class, "orangehrm-dashboard-grid")]/div[${i}]//div/div[@class="orangehrm-dashboard-widget-header"]
+        Append To List    ${dashboardWidgets}    ${widgetName}
     END
     Log List    ${dashboardWidgets}
     Lists Should Be Equal    ${dashboardWidgets}    ${expectedWidgets}
@@ -78,8 +78,8 @@ Count And Check Menu Items
     ${countedItems}    Evaluate    ${countedItems}+1
     VAR    @{menuItems}
     FOR    ${i}    IN RANGE    1    ${countedItems} 
-      ${itemName}    Get Text    //li[contains(@class, "oxd-main-menu-item-wrapper")][${i}]/a[1]/span
-      Append To List    ${menuItems}    ${itemName}
+        ${itemName}    Get Text    //li[contains(@class, "oxd-main-menu-item-wrapper")][${i}]/a[1]/span
+        Append To List    ${menuItems}    ${itemName}
     END            
     Log List    ${menuItems}
     Lists Should Be Equal    ${menuItems}    ${expectedMenuItems}
