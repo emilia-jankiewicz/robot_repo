@@ -1,21 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-06-07T16:49:32.133467" rpa="false" schemaversion="5">
-<suite id="s1" name="WebUiDataDriver" source="C:\Users\emili\OneDrive\Dokumenty\robot\Robot\MeritoRobot\WebUiDataDriver.robot">
-<kw name="Open Browser And Maximize Window And Login" owner="WebUi" type="SETUP">
-<kw name="Open Browser And Maximize Window" owner="WebUi">
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-06-07T19:08:11.720205" rpa="false" schemaversion="5">
+<suite id="s1" name="WebUiHRM" source="C:\Users\emili\OneDrive\Dokumenty\robot\Robot\MeritoRobot\WebUiHRM.robot">
+<kw name="Open Browser And Maximize Window" owner="WebUi" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:49:37.682658" level="INFO">Opening browser 'Firefox' to base url 'https://opensource-demo.orangehrmlive.com'.</msg>
+<msg time="2024-06-07T19:08:15.812318" level="INFO">Opening browser 'Firefox' to base url 'https://opensource-demo.orangehrmlive.com'.</msg>
 <arg>${WEBSITE}</arg>
 <arg>browser=${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-06-07T16:49:37.682658" elapsed="18.285246"/>
+<status status="PASS" start="2024-06-07T19:08:15.812318" elapsed="21.249045"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-06-07T16:49:55.968907" elapsed="0.022169"/>
+<status status="PASS" start="2024-06-07T19:08:37.106938" elapsed="0.014882"/>
 </kw>
 <doc>This keyword opens given browser and maximizes its window</doc>
-<status status="PASS" start="2024-06-07T16:49:37.679236" elapsed="18.311840"/>
+<status status="PASS" start="2024-06-07T19:08:15.808002" elapsed="21.315035"/>
+</kw>
+<test id="s1-t1" name="login_failure" line="9">
+<kw name="Go To Website" owner="WebUi" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:37.141527" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com'</msg>
+<arg>${WEBSITE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-07T19:08:37.140527" elapsed="1.143930"/>
+</kw>
+<doc>This keywords opens given website</doc>
+<status status="PASS" start="2024-06-07T19:08:37.139124" elapsed="1.145333"/>
+</kw>
+<kw name="Login To Website Using Wrong Credentials" owner="WebUi">
+<kw name="Wait For Element" owner="WebUi">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<arg>10s</arg>
+<arg>0.1s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-07T19:08:38.293704" elapsed="0.919763"/>
+</kw>
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>This keyword waits stated time for an element based on its location</doc>
+<status status="PASS" start="2024-06-07T19:08:38.292614" elapsed="0.920853"/>
+</kw>
+<kw name="Login To Page" owner="WebUi">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:39.217468" level="INFO">Typing text 'invalid' into text field '//input[@name="username"]'.</msg>
+<arg>${USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:39.215468" elapsed="0.151933"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:39.370722" level="INFO">Typing text 'invalid' into text field '//input[@type="password"]'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:39.369725" elapsed="0.060632"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:39.432546" level="INFO">Clicking button '//button[@type="submit"]'.</msg>
+<arg>${SUBMIT_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:39.431356" elapsed="1.547681"/>
+</kw>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<doc>This keyword log to website by entering username, password and clicking submit button</doc>
+<status status="PASS" start="2024-06-07T19:08:39.214468" elapsed="1.764569"/>
+</kw>
+<kw name="Wait For Text" owner="WebUi">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${expectedExpression}</arg>
+<arg>10s</arg>
+<arg>0.1s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-07T19:08:40.982380" elapsed="0.461275"/>
+</kw>
+<arg>${expectedExpression}</arg>
+<doc>This keyword waits stated time until page contains certain text</doc>
+<status status="PASS" start="2024-06-07T19:08:40.980325" elapsed="0.463330"/>
+</kw>
+<doc>This keyword logs to page using wrong credentials and waits for error messsage</doc>
+<status status="PASS" start="2024-06-07T19:08:38.291297" elapsed="3.152358"/>
+</kw>
+<status status="PASS" start="2024-06-07T19:08:37.127981" elapsed="4.337837"/>
+</test>
+<test id="s1-t2" name="succesful_login" line="12">
+<kw name="Go To Website" owner="WebUi" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:41.497772" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com'</msg>
+<arg>${WEBSITE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-07T19:08:41.495916" elapsed="1.248092"/>
+</kw>
+<doc>This keywords opens given website</doc>
+<status status="PASS" start="2024-06-07T19:08:41.495916" elapsed="1.248092"/>
 </kw>
 <kw name="Succesful Login To Website" owner="WebUi">
 <kw name="Wait For Element" owner="WebUi">
@@ -24,37 +101,37 @@
 <arg>10s</arg>
 <arg>0.1s</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:49:55.994706" elapsed="0.869058"/>
+<status status="PASS" start="2024-06-07T19:08:42.809491" elapsed="0.515056"/>
 </kw>
 <arg>${SUBMIT_BUTTON}</arg>
 <doc>This keyword waits stated time for an element based on its location</doc>
-<status status="PASS" start="2024-06-07T16:49:55.993076" elapsed="0.870688"/>
+<status status="PASS" start="2024-06-07T19:08:42.793206" elapsed="0.531341"/>
 </kw>
 <kw name="Login To Page" owner="WebUi">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:49:56.866780" level="INFO">Typing text 'Admin' into text field '//input[@name="username"]'.</msg>
+<msg time="2024-06-07T19:08:43.335816" level="INFO">Typing text 'Admin' into text field '//input[@name="username"]'.</msg>
 <arg>${USERNAME_FIELD}</arg>
 <arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:49:56.865780" elapsed="0.222065"/>
+<status status="PASS" start="2024-06-07T19:08:43.334812" elapsed="0.078550"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:49:57.088843" level="INFO">Typing text 'admin123' into text field '//input[@type="password"]'.</msg>
+<msg time="2024-06-07T19:08:43.414358" level="INFO">Typing text 'admin123' into text field '//input[@type="password"]'.</msg>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:49:57.088843" elapsed="0.210386"/>
+<status status="PASS" start="2024-06-07T19:08:43.414358" elapsed="0.047920"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:49:57.300304" level="INFO">Clicking button '//button[@type="submit"]'.</msg>
+<msg time="2024-06-07T19:08:43.486689" level="INFO">Clicking button '//button[@type="submit"]'.</msg>
 <arg>${SUBMIT_BUTTON}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:49:57.299229" elapsed="1.729772"/>
+<status status="PASS" start="2024-06-07T19:08:43.485699" elapsed="1.705427"/>
 </kw>
 <arg>${username}</arg>
 <arg>${password}</arg>
 <doc>This keyword log to website by entering username, password and clicking submit button</doc>
-<status status="PASS" start="2024-06-07T16:49:56.864779" elapsed="2.164222"/>
+<status status="PASS" start="2024-06-07T19:08:43.333693" elapsed="1.857433"/>
 </kw>
 <kw name="Wait For Text" owner="WebUi">
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
@@ -62,857 +139,787 @@
 <arg>10s</arg>
 <arg>0.1s</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:49:59.031380" elapsed="1.029148"/>
+<status status="PASS" start="2024-06-07T19:08:45.191126" elapsed="1.207625"/>
 </kw>
 <arg>${element}</arg>
 <doc>This keyword waits stated time until page contains certain text</doc>
-<status status="PASS" start="2024-06-07T16:49:59.030212" elapsed="1.031316"/>
+<status status="PASS" start="2024-06-07T19:08:45.191126" elapsed="1.208624"/>
 </kw>
 <doc>This keyword logs to website and checks login by waiting for certain text on the website</doc>
-<status status="PASS" start="2024-06-07T16:49:55.992081" elapsed="4.069447"/>
+<status status="PASS" start="2024-06-07T19:08:42.792066" elapsed="3.609314"/>
 </kw>
-<doc>This keyword opens browser, maximizes window and logs in</doc>
-<status status="PASS" start="2024-06-07T16:49:37.678236" elapsed="22.383292"/>
+<status status="PASS" start="2024-06-07T19:08:41.473532" elapsed="4.937693"/>
+</test>
+<test id="s1-t3" name="check_dashboard" line="15">
+<kw name="Go To Website" owner="WebUi" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:46.437280" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com'</msg>
+<arg>${WEBSITE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-07T19:08:46.436752" elapsed="1.545091"/>
 </kw>
-<test id="s1-t1" name="Click_on_the_page_Admin_and_check_header_Admin" line="10">
-<kw name="Click On Menu Page And Check Header">
-<kw name="Wait For Element And Click" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:00.100833" elapsed="0.005605"/>
+<doc>This keywords opens given website</doc>
+<status status="PASS" start="2024-06-07T19:08:46.435753" elapsed="1.554348"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:50:00.111133" level="INFO">Clicking element '//span[text()="Admin"]'.</msg>
-<arg>${element}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:50:00.106438" elapsed="2.710241"/>
-</kw>
-<arg>${menuNavigator}</arg>
-<doc>This keyword waits stated time for an element based on its location
-then it clicks this element</doc>
-<status status="PASS" start="2024-06-07T16:50:00.096330" elapsed="2.720349"/>
-</kw>
-<kw name="Input Password For Password Protected Page">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:02.823428" elapsed="0.004537"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Input Text</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:02.828971" elapsed="0.000000"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Click Button</arg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:02.830005" elapsed="0.001007"/>
-</kw>
-<arg>${menuPage}</arg>
-<arg>${EXCEPTION_NAME}</arg>
-<arg>${PASSWORD}</arg>
-<doc>This keyword checks if page is the named password protected page and inputs password</doc>
-<status status="PASS" start="2024-06-07T16:50:02.818510" elapsed="0.012502"/>
-</kw>
+<kw name="Count And Check Dashboard Widgets" owner="WebUi">
+<kw name="Count elements" owner="WebUi">
 <kw name="Wait For Element" owner="WebUi">
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${element}</arg>
 <arg>10s</arg>
 <arg>0.1s</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:02.832638" elapsed="0.652214"/>
+<status status="PASS" start="2024-06-07T19:08:48.012347" elapsed="0.736705"/>
 </kw>
-<arg>${properHeader}</arg>
+<arg>${element}</arg>
 <doc>This keyword waits stated time for an element based on its location</doc>
-<status status="PASS" start="2024-06-07T16:50:02.831548" elapsed="0.655292"/>
+<status status="PASS" start="2024-06-07T19:08:48.010115" elapsed="0.738937"/>
 </kw>
-<arg>menuPage=Admin</arg>
-<arg>expectedHeader=Admin</arg>
-<doc>This keyword clicks one by one on certain menu pages' names imported from given xlsx file
-and checks if their header are as expected headers imported from xlsx file</doc>
-<status status="PASS" start="2024-06-07T16:50:00.096330" elapsed="3.390510"/>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:48.898895" level="INFO">${countedElements} = 7</msg>
+<var>${countedElements}</var>
+<arg>${element}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:48.819084" elapsed="0.079811"/>
 </kw>
-<status status="PASS" start="2024-06-07T16:50:00.066745" elapsed="3.433543"/>
+<return>
+<value>${countedElements}</value>
+<status status="PASS" start="2024-06-07T19:08:48.980494" elapsed="0.068175"/>
+</return>
+<msg time="2024-06-07T19:08:49.051677" level="INFO">${countedWidgets} = 7</msg>
+<var>${countedWidgets}</var>
+<arg>${widgetHeader}</arg>
+<doc>This keyword counts elements of certain kind determined by their locator</doc>
+<status status="PASS" start="2024-06-07T19:08:48.009045" elapsed="1.043476"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-07T19:08:49.102663" level="INFO">${countedWidgets} = 8</msg>
+<var>${countedWidgets}</var>
+<arg>${countedWidgets}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.061632" elapsed="0.043367"/>
+</kw>
+<variable name="@{dashboardWidgets}">
+<status status="PASS" start="2024-06-07T19:08:49.117100" elapsed="0.015414"/>
+</variable>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:49.262858" level="INFO">${widgetName} = Time at Work</msg>
+<var>${widgetName}</var>
+<arg>//div[contains(@class, "orangehrm-dashboard-grid")]/div[${i}]//div/div[@class="orangehrm-dashboard-widget-header"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.161498" elapsed="0.103058"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${dashboardWidgets}</arg>
+<arg>${widgetName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.266802" elapsed="0.001824"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2024-06-07T19:08:49.160303" elapsed="0.108323"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:49.372013" level="INFO">${widgetName} = My Actions</msg>
+<var>${widgetName}</var>
+<arg>//div[contains(@class, "orangehrm-dashboard-grid")]/div[${i}]//div/div[@class="orangehrm-dashboard-widget-header"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.270690" elapsed="0.103039"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${dashboardWidgets}</arg>
+<arg>${widgetName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.381463" elapsed="0.000997"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2024-06-07T19:08:49.270690" elapsed="0.112500"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:49.452602" level="INFO">${widgetName} = Quick Launch</msg>
+<var>${widgetName}</var>
+<arg>//div[contains(@class, "orangehrm-dashboard-grid")]/div[${i}]//div/div[@class="orangehrm-dashboard-widget-header"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.383734" elapsed="0.068868"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${dashboardWidgets}</arg>
+<arg>${widgetName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.453117" elapsed="0.000000"/>
+</kw>
+<var name="${i}">3</var>
+<status status="PASS" start="2024-06-07T19:08:49.383734" elapsed="0.070682"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:49.516765" level="INFO">${widgetName} = Buzz Latest Posts</msg>
+<var>${widgetName}</var>
+<arg>//div[contains(@class, "orangehrm-dashboard-grid")]/div[${i}]//div/div[@class="orangehrm-dashboard-widget-header"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.455114" elapsed="0.061651"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${dashboardWidgets}</arg>
+<arg>${widgetName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.518001" elapsed="0.000972"/>
+</kw>
+<var name="${i}">4</var>
+<status status="PASS" start="2024-06-07T19:08:49.454416" elapsed="0.065693"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:49.802005" level="INFO">${widgetName} = Employees on Leave Today</msg>
+<var>${widgetName}</var>
+<arg>//div[contains(@class, "orangehrm-dashboard-grid")]/div[${i}]//div/div[@class="orangehrm-dashboard-widget-header"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.521108" elapsed="0.281898"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${dashboardWidgets}</arg>
+<arg>${widgetName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.804005" elapsed="0.001780"/>
+</kw>
+<var name="${i}">5</var>
+<status status="PASS" start="2024-06-07T19:08:49.521108" elapsed="0.284677"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:49.867716" level="INFO">${widgetName} = Employee Distribution by Sub Unit</msg>
+<var>${widgetName}</var>
+<arg>//div[contains(@class, "orangehrm-dashboard-grid")]/div[${i}]//div/div[@class="orangehrm-dashboard-widget-header"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.806876" elapsed="0.060840"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${dashboardWidgets}</arg>
+<arg>${widgetName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.868733" elapsed="0.000164"/>
+</kw>
+<var name="${i}">6</var>
+<status status="PASS" start="2024-06-07T19:08:49.806876" elapsed="0.062021"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:49.922083" level="INFO">${widgetName} = Employee Distribution by Location</msg>
+<var>${widgetName}</var>
+<arg>//div[contains(@class, "orangehrm-dashboard-grid")]/div[${i}]//div/div[@class="orangehrm-dashboard-widget-header"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.869974" elapsed="0.052883"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${dashboardWidgets}</arg>
+<arg>${widgetName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.924126" elapsed="0.001016"/>
+</kw>
+<var name="${i}">7</var>
+<status status="PASS" start="2024-06-07T19:08:49.869974" elapsed="0.056241"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>${countedWidgets}</value>
+<status status="PASS" start="2024-06-07T19:08:49.151317" elapsed="0.774898"/>
+</for>
+<kw name="Log List" owner="Collections">
+<msg time="2024-06-07T19:08:49.929639" level="INFO">List length is 7 and it contains following items:
+0: Time at Work
+1: My Actions
+2: Quick Launch
+3: Buzz Latest Posts
+4: Employees on Leave Today
+5: Employee Distribution by Sub Unit
+6: Employee Distribution by Location</msg>
+<arg>${dashboardWidgets}</arg>
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.928639" elapsed="0.004157"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<msg time="2024-06-07T19:08:49.942147" level="INFO">False</msg>
+<arg>${dashboardWidgets}</arg>
+<arg>${expectedWidgets}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.935839" elapsed="0.006308"/>
+</kw>
+<doc>This keyword iterates through a list of counted widgets and compares
+list of their names with a given list of expected names</doc>
+<status status="PASS" start="2024-06-07T19:08:48.006147" elapsed="1.937002"/>
+</kw>
+<status status="PASS" start="2024-06-07T19:08:46.433678" elapsed="3.515948"/>
 </test>
-<test id="s1-t2" name="Click_on_the_page_PIM_and_check_header_PIM" line="10">
-<kw name="Click On Menu Page And Check Header">
-<kw name="Wait For Element And Click" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:03.532842" elapsed="0.032240"/>
+<test id="s1-t4" name="check_menu" line="18">
+<kw name="Go To Website" owner="WebUi" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:49.980549" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com'</msg>
+<arg>${WEBSITE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-07T19:08:49.979116" elapsed="1.411408"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:50:03.569908" level="INFO">Clicking element '//span[text()="PIM"]'.</msg>
-<arg>${element}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:50:03.565082" elapsed="1.975689"/>
+<doc>This keywords opens given website</doc>
+<status status="PASS" start="2024-06-07T19:08:49.974959" elapsed="1.416564"/>
 </kw>
-<arg>${menuNavigator}</arg>
-<doc>This keyword waits stated time for an element based on its location
-then it clicks this element</doc>
-<status status="PASS" start="2024-06-07T16:50:03.527320" elapsed="2.013451"/>
-</kw>
-<kw name="Input Password For Password Protected Page">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:05.545851" elapsed="0.003005"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Input Text</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:05.549857" elapsed="0.000000"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Click Button</arg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:05.549857" elapsed="0.000000"/>
-</kw>
-<arg>${menuPage}</arg>
-<arg>${EXCEPTION_NAME}</arg>
-<arg>${PASSWORD}</arg>
-<doc>This keyword checks if page is the named password protected page and inputs password</doc>
-<status status="PASS" start="2024-06-07T16:50:05.543666" elapsed="0.007953"/>
-</kw>
+<kw name="Count And Check Menu Items" owner="WebUi">
+<kw name="Count elements" owner="WebUi">
 <kw name="Wait For Element" owner="WebUi">
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${element}</arg>
 <arg>10s</arg>
 <arg>0.1s</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:05.553147" elapsed="1.055163"/>
+<status status="PASS" start="2024-06-07T19:08:51.395286" elapsed="0.645633"/>
 </kw>
-<arg>${properHeader}</arg>
+<arg>${element}</arg>
 <doc>This keyword waits stated time for an element based on its location</doc>
-<status status="PASS" start="2024-06-07T16:50:05.551619" elapsed="1.056691"/>
+<status status="PASS" start="2024-06-07T19:08:51.394286" elapsed="0.646633"/>
 </kw>
-<arg>menuPage=PIM</arg>
-<arg>expectedHeader=PIM</arg>
-<doc>This keyword clicks one by one on certain menu pages' names imported from given xlsx file
-and checks if their header are as expected headers imported from xlsx file</doc>
-<status status="PASS" start="2024-06-07T16:50:03.524324" elapsed="3.083986"/>
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:52.049117" level="INFO">${countedElements} = 12</msg>
+<var>${countedElements}</var>
+<arg>${element}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.040919" elapsed="0.008198"/>
 </kw>
-<status status="PASS" start="2024-06-07T16:50:03.512179" elapsed="3.103291"/>
+<return>
+<value>${countedElements}</value>
+<status status="PASS" start="2024-06-07T19:08:52.051548" elapsed="0.009015"/>
+</return>
+<msg time="2024-06-07T19:08:52.062008" level="INFO">${countedItems} = 12</msg>
+<var>${countedItems}</var>
+<arg>${MAIN_MENU_ELEMENT}</arg>
+<doc>This keyword counts elements of certain kind determined by their locator</doc>
+<status status="PASS" start="2024-06-07T19:08:51.394106" elapsed="0.671202"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-07T19:08:52.068872" level="INFO">${countedItems} = 13</msg>
+<var>${countedItems}</var>
+<arg>${countedItems}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.067271" elapsed="0.001601"/>
+</kw>
+<variable name="@{menuItems}">
+<status status="PASS" start="2024-06-07T19:08:52.070318" elapsed="0.000000"/>
+</variable>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:52.183953" level="INFO">${itemName} = Admin</msg>
+<var>${itemName}</var>
+<arg>//li[contains(@class, "oxd-main-menu-item-wrapper")][${i}]/a[1]/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.074930" elapsed="0.109023"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${menuItems}</arg>
+<arg>${itemName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.183953" elapsed="0.001002"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2024-06-07T19:08:52.074930" elapsed="0.110025"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:52.283337" level="INFO">${itemName} = PIM</msg>
+<var>${itemName}</var>
+<arg>//li[contains(@class, "oxd-main-menu-item-wrapper")][${i}]/a[1]/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.187185" elapsed="0.096395"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${menuItems}</arg>
+<arg>${itemName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.283580" elapsed="0.000999"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2024-06-07T19:08:52.186188" elapsed="0.098391"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:52.435379" level="INFO">${itemName} = Leave</msg>
+<var>${itemName}</var>
+<arg>//li[contains(@class, "oxd-main-menu-item-wrapper")][${i}]/a[1]/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.285103" elapsed="0.151528"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${menuItems}</arg>
+<arg>${itemName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.438210" elapsed="0.000000"/>
+</kw>
+<var name="${i}">3</var>
+<status status="PASS" start="2024-06-07T19:08:52.285103" elapsed="0.154110"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:52.692107" level="INFO">${itemName} = Time</msg>
+<var>${itemName}</var>
+<arg>//li[contains(@class, "oxd-main-menu-item-wrapper")][${i}]/a[1]/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.439719" elapsed="0.252388"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${menuItems}</arg>
+<arg>${itemName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.692107" elapsed="0.000000"/>
+</kw>
+<var name="${i}">4</var>
+<status status="PASS" start="2024-06-07T19:08:52.439719" elapsed="0.254204"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:52.811563" level="INFO">${itemName} = Recruitment</msg>
+<var>${itemName}</var>
+<arg>//li[contains(@class, "oxd-main-menu-item-wrapper")][${i}]/a[1]/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.694924" elapsed="0.116639"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${menuItems}</arg>
+<arg>${itemName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.812567" elapsed="0.000000"/>
+</kw>
+<var name="${i}">5</var>
+<status status="PASS" start="2024-06-07T19:08:52.693923" elapsed="0.118644"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:52.881632" level="INFO">${itemName} = My Info</msg>
+<var>${itemName}</var>
+<arg>//li[contains(@class, "oxd-main-menu-item-wrapper")][${i}]/a[1]/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.812567" elapsed="0.069065"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${menuItems}</arg>
+<arg>${itemName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.882945" elapsed="0.001155"/>
+</kw>
+<var name="${i}">6</var>
+<status status="PASS" start="2024-06-07T19:08:52.812567" elapsed="0.071533"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:52.924743" level="INFO">${itemName} = Performance</msg>
+<var>${itemName}</var>
+<arg>//li[contains(@class, "oxd-main-menu-item-wrapper")][${i}]/a[1]/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.885100" elapsed="0.039643"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${menuItems}</arg>
+<arg>${itemName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.924743" elapsed="0.000000"/>
+</kw>
+<var name="${i}">7</var>
+<status status="PASS" start="2024-06-07T19:08:52.885100" elapsed="0.039643"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:52.976678" level="INFO">${itemName} = Dashboard</msg>
+<var>${itemName}</var>
+<arg>//li[contains(@class, "oxd-main-menu-item-wrapper")][${i}]/a[1]/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.924743" elapsed="0.051935"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${menuItems}</arg>
+<arg>${itemName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.977677" elapsed="0.000000"/>
+</kw>
+<var name="${i}">8</var>
+<status status="PASS" start="2024-06-07T19:08:52.924743" elapsed="0.052934"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:53.003916" level="INFO">${itemName} = Directory</msg>
+<var>${itemName}</var>
+<arg>//li[contains(@class, "oxd-main-menu-item-wrapper")][${i}]/a[1]/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:52.977677" elapsed="0.026239"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${menuItems}</arg>
+<arg>${itemName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:53.004918" elapsed="0.000000"/>
+</kw>
+<var name="${i}">9</var>
+<status status="PASS" start="2024-06-07T19:08:52.977677" elapsed="0.028294"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:53.037096" level="INFO">${itemName} = Maintenance</msg>
+<var>${itemName}</var>
+<arg>//li[contains(@class, "oxd-main-menu-item-wrapper")][${i}]/a[1]/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:53.006971" elapsed="0.031130"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${menuItems}</arg>
+<arg>${itemName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:53.038101" elapsed="0.000563"/>
+</kw>
+<var name="${i}">10</var>
+<status status="PASS" start="2024-06-07T19:08:53.006971" elapsed="0.031693"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:53.106702" level="INFO">${itemName} = Claim</msg>
+<var>${itemName}</var>
+<arg>//li[contains(@class, "oxd-main-menu-item-wrapper")][${i}]/a[1]/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:53.040170" elapsed="0.066532"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${menuItems}</arg>
+<arg>${itemName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:53.108393" elapsed="0.002235"/>
+</kw>
+<var name="${i}">11</var>
+<status status="PASS" start="2024-06-07T19:08:53.038664" elapsed="0.071964"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:53.158042" level="INFO">${itemName} = Buzz</msg>
+<var>${itemName}</var>
+<arg>//li[contains(@class, "oxd-main-menu-item-wrapper")][${i}]/a[1]/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:08:53.110628" elapsed="0.048631"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${menuItems}</arg>
+<arg>${itemName}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2024-06-07T19:08:53.159259" elapsed="0.002801"/>
+</kw>
+<var name="${i}">12</var>
+<status status="PASS" start="2024-06-07T19:08:53.110628" elapsed="0.051889"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>${countedItems}</value>
+<status status="PASS" start="2024-06-07T19:08:52.071368" elapsed="1.091149"/>
+</for>
+<kw name="Log List" owner="Collections">
+<msg time="2024-06-07T19:08:53.167198" level="INFO">List length is 12 and it contains following items:
+0: Admin
+1: PIM
+2: Leave
+3: Time
+4: Recruitment
+5: My Info
+6: Performance
+7: Dashboard
+8: Directory
+9: Maintenance
+10: Claim
+11: Buzz</msg>
+<arg>${menuItems}</arg>
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<status status="PASS" start="2024-06-07T19:08:53.166173" elapsed="0.003042"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<msg time="2024-06-07T19:08:53.169915" level="INFO">False</msg>
+<arg>${menuItems}</arg>
+<arg>${expectedMenuItems}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2024-06-07T19:08:53.169915" elapsed="0.001004"/>
+</kw>
+<doc>This keyword iterates through a list of counted menu items and compares
+list of their names with a given list of expected names, it needs a sepcific xpath</doc>
+<status status="PASS" start="2024-06-07T19:08:51.393107" elapsed="1.777812"/>
+</kw>
+<status status="PASS" start="2024-06-07T19:08:49.967886" elapsed="3.204803"/>
 </test>
-<test id="s1-t3" name="Click_on_the_page_Leave_and_check_header_Leave" line="10">
-<kw name="Click On Menu Page And Check Header">
-<kw name="Wait For Element And Click" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:06.630812" elapsed="0.108599"/>
+<test id="s1-t5" name="write_and_delete_post" line="21">
+<kw name="Go To Website" owner="WebUi" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:08:53.182970" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com'</msg>
+<arg>${WEBSITE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-07T19:08:53.181961" elapsed="1.668492"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:50:06.741524" level="INFO">Clicking element '//span[text()="Leave"]'.</msg>
-<arg>${element}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:50:06.739411" elapsed="1.872589"/>
+<doc>This keywords opens given website</doc>
+<status status="PASS" start="2024-06-07T19:08:53.180331" elapsed="1.670122"/>
 </kw>
-<arg>${menuNavigator}</arg>
-<doc>This keyword waits stated time for an element based on its location
-then it clicks this element</doc>
-<status status="PASS" start="2024-06-07T16:50:06.629501" elapsed="1.983526"/>
+<kw name="Write Post And Then Delete It" owner="WebUi">
+<kw name="Set Reference Folder" owner="ImageHorizonLibrary">
+<arg>${REFERENCE_FOLDER}</arg>
+<doc>Sets where all reference images are stored.</doc>
+<status status="PASS" start="2024-06-07T19:08:54.855151" elapsed="0.011104"/>
 </kw>
-<kw name="Input Password For Password Protected Page">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${PASSWORD_FIELD}</arg>
+<kw name="Set Confidence" owner="ImageHorizonLibrary">
+<arg>0.7</arg>
+<doc>Sets the accuracy when finding images.</doc>
+<status status="PASS" start="2024-06-07T19:08:54.867253" elapsed="0.001004"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn">
+<kw name="Go To Posting Section" owner="WebUi">
+<kw name="Wait For Location And Click Image" owner="WebUi">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Locate" owner="ImageHorizonLibrary">
+<msg time="2024-06-07T19:08:57.798376" level="FAIL">ImageNotFoundException</msg>
+<arg>${image}</arg>
+<doc>Locate image on screen.</doc>
+<status status="FAIL" start="2024-06-07T19:08:54.885695" elapsed="3.008257">ImageNotFoundException</status>
+</kw>
+<kw name="Locate" owner="ImageHorizonLibrary">
+<msg time="2024-06-07T19:08:58.803226" level="INFO">Image "C:\Users\emili\OneDrive\Dokumenty\robot\Robot\MeritoRobot\labs\images\buzz.png" found at Box(left=14, top=1321, width=211, height=81)</msg>
+<arg>${image}</arg>
+<doc>Locate image on screen.</doc>
+<status status="PASS" start="2024-06-07T19:08:57.995493" elapsed="0.808727"/>
+</kw>
 <arg>10s</arg>
 <arg>0.1s</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:08.613027" elapsed="0.002810"/>
+<arg>Locate</arg>
+<arg>${image}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2024-06-07T19:08:54.878028" elapsed="3.926192"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Input Text</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:08.616834" elapsed="0.000000"/>
+<kw name="Click Image" owner="ImageHorizonLibrary">
+<msg time="2024-06-07T19:08:59.566603" level="INFO">Image "C:\Users\emili\OneDrive\Dokumenty\robot\Robot\MeritoRobot\labs\images\buzz.png" found at Box(left=14, top=1321, width=211, height=81)</msg>
+<msg time="2024-06-07T19:08:59.566603" level="INFO">Clicking image "buzz.png" in position (119, 1361)</msg>
+<arg>${image}</arg>
+<doc>Finds the reference image on screen and clicks it once.</doc>
+<status status="PASS" start="2024-06-07T19:08:58.806221" elapsed="0.904333"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Click Button</arg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:08.616834" elapsed="0.000000"/>
+<arg>${button}</arg>
+<doc>This keyword waits to locate given image and then clicks on it</doc>
+<status status="PASS" start="2024-06-07T19:08:54.875518" elapsed="4.836338"/>
 </kw>
-<arg>${menuPage}</arg>
-<arg>${EXCEPTION_NAME}</arg>
-<arg>${PASSWORD}</arg>
-<doc>This keyword checks if page is the named password protected page and inputs password</doc>
-<status status="PASS" start="2024-06-07T16:50:08.613027" elapsed="0.003807"/>
-</kw>
-<kw name="Wait For Element" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
+<kw name="Wait For Text" owner="WebUi">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${expectedExpression}</arg>
 <arg>10s</arg>
 <arg>0.1s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:08.616834" elapsed="0.940383"/>
-</kw>
-<arg>${properHeader}</arg>
-<doc>This keyword waits stated time for an element based on its location</doc>
-<status status="PASS" start="2024-06-07T16:50:08.616834" elapsed="0.941380"/>
-</kw>
-<arg>menuPage=Leave</arg>
-<arg>expectedHeader=Leave</arg>
-<doc>This keyword clicks one by one on certain menu pages' names imported from given xlsx file
-and checks if their header are as expected headers imported from xlsx file</doc>
-<status status="PASS" start="2024-06-07T16:50:06.626850" elapsed="2.931364"/>
-</kw>
-<status status="PASS" start="2024-06-07T16:50:06.619519" elapsed="2.939735"/>
-</test>
-<test id="s1-t4" name="Click_on_the_page_Time_and_check_header_Time" line="10">
-<kw name="Click On Menu Page And Check Header">
-<kw name="Wait For Element And Click" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:09.570683" elapsed="0.015950"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:50:09.588198" level="INFO">Clicking element '//span[text()="Time"]'.</msg>
-<arg>${element}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:50:09.587197" elapsed="2.618806"/>
-</kw>
-<arg>${menuNavigator}</arg>
-<doc>This keyword waits stated time for an element based on its location
-then it clicks this element</doc>
-<status status="PASS" start="2024-06-07T16:50:09.568511" elapsed="2.638417"/>
-</kw>
-<kw name="Input Password For Password Protected Page">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:12.207924" elapsed="0.000999"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Input Text</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:12.209748" elapsed="0.001089"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Click Button</arg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:12.212053" elapsed="0.000000"/>
-</kw>
-<arg>${menuPage}</arg>
-<arg>${EXCEPTION_NAME}</arg>
-<arg>${PASSWORD}</arg>
-<doc>This keyword checks if page is the named password protected page and inputs password</doc>
-<status status="PASS" start="2024-06-07T16:50:12.206928" elapsed="0.006333"/>
-</kw>
-<kw name="Wait For Element" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:12.215952" elapsed="1.358064"/>
-</kw>
-<arg>${properHeader}</arg>
-<doc>This keyword waits stated time for an element based on its location</doc>
-<status status="PASS" start="2024-06-07T16:50:12.213261" elapsed="1.368154"/>
-</kw>
-<arg>menuPage=Time</arg>
-<arg>expectedHeader=Time</arg>
-<doc>This keyword clicks one by one on certain menu pages' names imported from given xlsx file
-and checks if their header are as expected headers imported from xlsx file</doc>
-<status status="PASS" start="2024-06-07T16:50:09.566750" elapsed="4.014665"/>
-</kw>
-<status status="PASS" start="2024-06-07T16:50:09.561551" elapsed="4.020865"/>
-</test>
-<test id="s1-t5" name="Click_on_the_page_Recruitment_and_check_header_Recruitment" line="10">
-<kw name="Click On Menu Page And Check Header">
-<kw name="Wait For Element And Click" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:13.597935" elapsed="0.116006"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:50:13.716647" level="INFO">Clicking element '//span[text()="Recruitment"]'.</msg>
-<arg>${element}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:50:13.714939" elapsed="1.270746"/>
-</kw>
-<arg>${menuNavigator}</arg>
-<doc>This keyword waits stated time for an element based on its location
-then it clicks this element</doc>
-<status status="PASS" start="2024-06-07T16:50:13.594334" elapsed="1.392395"/>
-</kw>
-<kw name="Input Password For Password Protected Page">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:14.987714" elapsed="0.002282"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Input Text</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:14.990999" elapsed="0.000000"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Click Button</arg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:14.990999" elapsed="0.000000"/>
-</kw>
-<arg>${menuPage}</arg>
-<arg>${EXCEPTION_NAME}</arg>
-<arg>${PASSWORD}</arg>
-<doc>This keyword checks if page is the named password protected page and inputs password</doc>
-<status status="PASS" start="2024-06-07T16:50:14.986729" elapsed="0.004270"/>
-</kw>
-<kw name="Wait For Element" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:14.992945" elapsed="0.571641"/>
-</kw>
-<arg>${properHeader}</arg>
-<doc>This keyword waits stated time for an element based on its location</doc>
-<status status="PASS" start="2024-06-07T16:50:14.992945" elapsed="0.571641"/>
-</kw>
-<arg>menuPage=Recruitment</arg>
-<arg>expectedHeader=Recruitment</arg>
-<doc>This keyword clicks one by one on certain menu pages' names imported from given xlsx file
-and checks if their header are as expected headers imported from xlsx file</doc>
-<status status="PASS" start="2024-06-07T16:50:13.594334" elapsed="1.970252"/>
-</kw>
-<status status="PASS" start="2024-06-07T16:50:13.588102" elapsed="1.979706"/>
-</test>
-<test id="s1-t6" name="Click_on_the_page_My Info_and_check_header_PIM" line="10">
-<kw name="Click On Menu Page And Check Header">
-<kw name="Wait For Element And Click" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:15.585862" elapsed="0.022614"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:50:15.610174" level="INFO">Clicking element '//span[text()="My Info"]'.</msg>
-<arg>${element}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:50:15.609170" elapsed="1.718316"/>
-</kw>
-<arg>${menuNavigator}</arg>
-<doc>This keyword waits stated time for an element based on its location
-then it clicks this element</doc>
-<status status="PASS" start="2024-06-07T16:50:15.582603" elapsed="1.744883"/>
-</kw>
-<kw name="Input Password For Password Protected Page">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:17.331505" elapsed="0.000999"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Input Text</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:17.333002" elapsed="0.001112"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Click Button</arg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:17.334114" elapsed="0.000000"/>
-</kw>
-<arg>${menuPage}</arg>
-<arg>${EXCEPTION_NAME}</arg>
-<arg>${PASSWORD}</arg>
-<doc>This keyword checks if page is the named password protected page and inputs password</doc>
-<status status="PASS" start="2024-06-07T16:50:17.328482" elapsed="0.007225"/>
-</kw>
-<kw name="Wait For Element" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:17.337714" elapsed="0.617512"/>
-</kw>
-<arg>${properHeader}</arg>
-<doc>This keyword waits stated time for an element based on its location</doc>
-<status status="PASS" start="2024-06-07T16:50:17.336716" elapsed="0.618510"/>
-</kw>
-<arg>menuPage=My Info</arg>
-<arg>expectedHeader=PIM</arg>
-<doc>This keyword clicks one by one on certain menu pages' names imported from given xlsx file
-and checks if their header are as expected headers imported from xlsx file</doc>
-<status status="PASS" start="2024-06-07T16:50:15.579325" elapsed="2.375901"/>
-</kw>
-<status status="PASS" start="2024-06-07T16:50:15.571017" elapsed="2.385210"/>
-</test>
-<test id="s1-t7" name="Click_on_the_page_Performance_and_check_header_Performance" line="10">
-<kw name="Click On Menu Page And Check Header">
-<kw name="Wait For Element And Click" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:17.971970" elapsed="0.016863"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:50:17.989477" level="INFO">Clicking element '//span[text()="Performance"]'.</msg>
-<arg>${element}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:50:17.989477" elapsed="1.523083"/>
-</kw>
-<arg>${menuNavigator}</arg>
-<doc>This keyword waits stated time for an element based on its location
-then it clicks this element</doc>
-<status status="PASS" start="2024-06-07T16:50:17.971102" elapsed="1.541458"/>
-</kw>
-<kw name="Input Password For Password Protected Page">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:19.515563" elapsed="0.001005"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Input Text</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:19.516568" elapsed="0.000997"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Click Button</arg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:19.517565" elapsed="0.001000"/>
-</kw>
-<arg>${menuPage}</arg>
-<arg>${EXCEPTION_NAME}</arg>
-<arg>${PASSWORD}</arg>
-<doc>This keyword checks if page is the named password protected page and inputs password</doc>
-<status status="PASS" start="2024-06-07T16:50:19.513569" elapsed="0.004996"/>
-</kw>
-<kw name="Wait For Element" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:19.519804" elapsed="0.641631"/>
-</kw>
-<arg>${properHeader}</arg>
-<doc>This keyword waits stated time for an element based on its location</doc>
-<status status="PASS" start="2024-06-07T16:50:19.518565" elapsed="0.643594"/>
-</kw>
-<arg>menuPage=Performance</arg>
-<arg>expectedHeader=Performance</arg>
-<doc>This keyword clicks one by one on certain menu pages' names imported from given xlsx file
-and checks if their header are as expected headers imported from xlsx file</doc>
-<status status="PASS" start="2024-06-07T16:50:17.968096" elapsed="2.194063"/>
-</kw>
-<status status="PASS" start="2024-06-07T16:50:17.958459" elapsed="2.206406"/>
-</test>
-<test id="s1-t8" name="Click_on_the_page_Dashboard_and_check_header_Dashboard" line="10">
-<kw name="Click On Menu Page And Check Header">
-<kw name="Wait For Element And Click" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:20.197360" elapsed="0.082646"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:50:20.283898" level="INFO">Clicking element '//span[text()="Dashboard"]'.</msg>
-<arg>${element}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:50:20.282312" elapsed="1.297495"/>
-</kw>
-<arg>${menuNavigator}</arg>
-<doc>This keyword waits stated time for an element based on its location
-then it clicks this element</doc>
-<status status="PASS" start="2024-06-07T16:50:20.195785" elapsed="1.384022"/>
-</kw>
-<kw name="Input Password For Password Protected Page">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:21.581565" elapsed="0.001963"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Input Text</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:21.584796" elapsed="0.000999"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Click Button</arg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:21.585795" elapsed="0.000682"/>
-</kw>
-<arg>${menuPage}</arg>
-<arg>${EXCEPTION_NAME}</arg>
-<arg>${PASSWORD}</arg>
-<doc>This keyword checks if page is the named password protected page and inputs password</doc>
-<status status="PASS" start="2024-06-07T16:50:21.580573" elapsed="0.006892"/>
-</kw>
-<kw name="Wait For Element" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:21.588462" elapsed="0.657196"/>
-</kw>
-<arg>${properHeader}</arg>
-<doc>This keyword waits stated time for an element based on its location</doc>
-<status status="PASS" start="2024-06-07T16:50:21.587465" elapsed="0.659197"/>
-</kw>
-<arg>menuPage=Dashboard</arg>
-<arg>expectedHeader=Dashboard</arg>
-<doc>This keyword clicks one by one on certain menu pages' names imported from given xlsx file
-and checks if their header are as expected headers imported from xlsx file</doc>
-<status status="PASS" start="2024-06-07T16:50:20.192514" elapsed="2.054148"/>
-</kw>
-<status status="PASS" start="2024-06-07T16:50:20.172096" elapsed="2.082039"/>
-</test>
-<test id="s1-t9" name="Click_on_the_page_Directory_and_check_header_Directory" line="10">
-<kw name="Click On Menu Page And Check Header">
-<kw name="Wait For Element And Click" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:22.281673" elapsed="0.020547"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:50:22.303095" level="INFO">Clicking element '//span[text()="Directory"]'.</msg>
-<arg>${element}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:50:22.302220" elapsed="1.774610"/>
-</kw>
-<arg>${menuNavigator}</arg>
-<doc>This keyword waits stated time for an element based on its location
-then it clicks this element</doc>
-<status status="PASS" start="2024-06-07T16:50:22.277314" elapsed="1.800519"/>
-</kw>
-<kw name="Input Password For Password Protected Page">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:24.077833" elapsed="0.004087"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Input Text</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:24.082922" elapsed="0.002726"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Click Button</arg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:24.086648" elapsed="0.000000"/>
-</kw>
-<arg>${menuPage}</arg>
-<arg>${EXCEPTION_NAME}</arg>
-<arg>${PASSWORD}</arg>
-<doc>This keyword checks if page is the named password protected page and inputs password</doc>
-<status status="PASS" start="2024-06-07T16:50:24.077833" elapsed="0.008815"/>
-</kw>
-<kw name="Wait For Element" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:24.090309" elapsed="0.563692"/>
-</kw>
-<arg>${properHeader}</arg>
-<doc>This keyword waits stated time for an element based on its location</doc>
-<status status="PASS" start="2024-06-07T16:50:24.086648" elapsed="0.568357"/>
-</kw>
-<arg>menuPage=Directory</arg>
-<arg>expectedHeader=Directory</arg>
-<doc>This keyword clicks one by one on certain menu pages' names imported from given xlsx file
-and checks if their header are as expected headers imported from xlsx file</doc>
-<status status="PASS" start="2024-06-07T16:50:22.271884" elapsed="2.383121"/>
-</kw>
-<status status="PASS" start="2024-06-07T16:50:22.259217" elapsed="2.397301"/>
-</test>
-<test id="s1-t10" name="Click_on_the_page_Maintenance_and_check_header_Maintenance" line="10">
-<kw name="Click On Menu Page And Check Header">
-<kw name="Wait For Element And Click" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:24.715141" elapsed="0.013400"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:50:24.729536" level="INFO">Clicking element '//span[text()="Maintenance"]'.</msg>
-<arg>${element}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:50:24.728541" elapsed="1.230566"/>
-</kw>
-<arg>${menuNavigator}</arg>
-<doc>This keyword waits stated time for an element based on its location
-then it clicks this element</doc>
-<status status="PASS" start="2024-06-07T16:50:24.714881" elapsed="1.244226"/>
-</kw>
-<kw name="Input Password For Password Protected Page">
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${PASSWORD_FIELD}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-06-07T16:50:25.962910" elapsed="0.965972"/>
-</kw>
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:25.960437" elapsed="0.968445"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-07T19:08:59.735825" elapsed="3.000287"/>
+</kw>
+<arg>${header}</arg>
+<doc>This keyword waits stated time until page contains certain text</doc>
+<status status="PASS" start="2024-06-07T19:08:59.722397" elapsed="3.014798"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-07T19:09:04.740708" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-07T19:09:02.737195" elapsed="2.003513"/>
+</kw>
+<doc>This keyword takes to the posting section on the website</doc>
+<status status="PASS" start="2024-06-07T19:08:54.873434" elapsed="9.867274"/>
+</kw>
+<kw name="Write And Post Something" owner="WebUi">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:50:26.928882" level="INFO">Typing text 'admin123' into text field '//input[@type="password"]'.</msg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD}</arg>
+<msg time="2024-06-07T19:09:04.740708" level="INFO">Typing text 'Szczebrzeszyn-172635-!!!??@@?' into text field '//textarea'.</msg>
+<arg>${location}</arg>
+<arg>${TEXT}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:50:26.928882" elapsed="0.033820"/>
+<status status="PASS" start="2024-06-07T19:09:04.740708" elapsed="0.304976"/>
 </kw>
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Input Text</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:26.928882" elapsed="0.033820"/>
+<kw name="Wait For Location And Click Image" owner="WebUi">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Locate" owner="ImageHorizonLibrary">
+<msg time="2024-06-07T19:09:05.749860" level="INFO">Image "C:\Users\emili\OneDrive\Dokumenty\robot\Robot\MeritoRobot\labs\images\post.png" found at Box(left=1590, top=640, width=206, height=79)</msg>
+<arg>${image}</arg>
+<doc>Locate image on screen.</doc>
+<status status="PASS" start="2024-06-07T19:09:05.049524" elapsed="0.700336"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:50:26.963700" level="INFO">Clicking button '//button[@type="submit"]'.</msg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:50:26.963700" elapsed="2.091001"/>
-</kw>
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Click Button</arg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:26.962702" elapsed="2.092999"/>
-</kw>
-<arg>${menuPage}</arg>
-<arg>${EXCEPTION_NAME}</arg>
-<arg>${PASSWORD}</arg>
-<doc>This keyword checks if page is the named password protected page and inputs password</doc>
-<status status="PASS" start="2024-06-07T16:50:25.959107" elapsed="3.096594"/>
-</kw>
-<kw name="Wait For Element" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
 <arg>10s</arg>
 <arg>0.1s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:29.057838" elapsed="0.970591"/>
+<arg>Locate</arg>
+<arg>${image}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2024-06-07T19:09:05.047864" elapsed="0.702992"/>
 </kw>
-<arg>${properHeader}</arg>
-<doc>This keyword waits stated time for an element based on its location</doc>
-<status status="PASS" start="2024-06-07T16:50:29.055701" elapsed="0.972728"/>
+<kw name="Click Image" owner="ImageHorizonLibrary">
+<msg time="2024-06-07T19:09:06.581313" level="INFO">Image "C:\Users\emili\OneDrive\Dokumenty\robot\Robot\MeritoRobot\labs\images\post.png" found at Box(left=1590, top=640, width=206, height=79)</msg>
+<msg time="2024-06-07T19:09:06.582314" level="INFO">Clicking image "post.png" in position (1693, 679)</msg>
+<arg>${image}</arg>
+<doc>Finds the reference image on screen and clicks it once.</doc>
+<status status="PASS" start="2024-06-07T19:09:05.750856" elapsed="0.936227"/>
 </kw>
-<arg>menuPage=Maintenance</arg>
-<arg>expectedHeader=Maintenance</arg>
-<doc>This keyword clicks one by one on certain menu pages' names imported from given xlsx file
-and checks if their header are as expected headers imported from xlsx file</doc>
-<status status="PASS" start="2024-06-07T16:50:24.660369" elapsed="5.368060"/>
+<arg>${postButton}</arg>
+<doc>This keyword waits to locate given image and then clicks on it</doc>
+<status status="PASS" start="2024-06-07T19:09:05.045684" elapsed="1.642404"/>
 </kw>
-<status status="PASS" start="2024-06-07T16:50:24.658357" elapsed="5.383024"/>
-</test>
-<test id="s1-t11" name="Click_on_the_page_Claim_and_check_header_Claim" line="10">
-<kw name="Click On Menu Page And Check Header">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-07T19:09:08.691301" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-07T19:09:06.689097" elapsed="2.002204"/>
+</kw>
+<kw name="Wait For Text" owner="WebUi">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${expectedExpression}</arg>
+<arg>10s</arg>
+<arg>0.1s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-07T19:09:08.691301" elapsed="0.026975"/>
+</kw>
+<arg>${TEXT}</arg>
+<doc>This keyword waits stated time until page contains certain text</doc>
+<status status="PASS" start="2024-06-07T19:09:08.691301" elapsed="0.028028"/>
+</kw>
+<doc>This keyword writes some text and then posts it</doc>
+<status status="PASS" start="2024-06-07T19:09:04.740708" elapsed="3.978621"/>
+</kw>
+<kw name="Delete Post" owner="WebUi">
 <kw name="Wait For Element And Click" owner="WebUi">
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${element}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:30.063506" elapsed="0.018920"/>
+<status status="PASS" start="2024-06-07T19:09:08.719329" elapsed="0.032302"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:50:30.085195" level="INFO">Clicking element '//span[text()="Claim"]'.</msg>
+<msg time="2024-06-07T19:09:08.757307" level="INFO">Clicking element '(//i[@class="oxd-icon bi-three-dots"])[1]'.</msg>
 <arg>${element}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:50:30.082426" elapsed="1.451545"/>
+<status status="PASS" start="2024-06-07T19:09:08.753567" elapsed="0.289641"/>
 </kw>
-<arg>${menuNavigator}</arg>
+<arg>${moreOptionsButton}</arg>
 <doc>This keyword waits stated time for an element based on its location
 then it clicks this element</doc>
-<status status="PASS" start="2024-06-07T16:50:30.063506" elapsed="1.470465"/>
+<status status="PASS" start="2024-06-07T19:09:08.719329" elapsed="0.324881"/>
 </kw>
-<kw name="Input Password For Password Protected Page">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${PASSWORD_FIELD}</arg>
+<kw name="Wait For Location And Click Image" owner="WebUi">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Locate" owner="ImageHorizonLibrary">
+<msg time="2024-06-07T19:09:09.926522" level="INFO">Image "C:\Users\emili\OneDrive\Dokumenty\robot\Robot\MeritoRobot\labs\images\deletepost.png" found at Box(left=1607, top=1082, width=194, height=74)</msg>
+<arg>${image}</arg>
+<doc>Locate image on screen.</doc>
+<status status="PASS" start="2024-06-07T19:09:09.047890" elapsed="0.878632"/>
+</kw>
 <arg>10s</arg>
 <arg>0.1s</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:31.534971" elapsed="0.003234"/>
+<arg>Locate</arg>
+<arg>${image}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2024-06-07T19:09:09.046917" elapsed="0.879605"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Input Text</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:31.538205" elapsed="0.001151"/>
+<kw name="Click Image" owner="ImageHorizonLibrary">
+<msg time="2024-06-07T19:09:10.574430" level="INFO">Image "C:\Users\emili\OneDrive\Dokumenty\robot\Robot\MeritoRobot\labs\images\deletepost.png" found at Box(left=1607, top=1082, width=194, height=74)</msg>
+<msg time="2024-06-07T19:09:10.574430" level="INFO">Clicking image "deletePost.png" in position (1704, 1119)</msg>
+<arg>${image}</arg>
+<doc>Finds the reference image on screen and clicks it once.</doc>
+<status status="PASS" start="2024-06-07T19:09:09.926522" elapsed="0.755854"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Click Button</arg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:31.540626" elapsed="0.000000"/>
+<arg>${deleteButton}</arg>
+<doc>This keyword waits to locate given image and then clicks on it</doc>
+<status status="PASS" start="2024-06-07T19:09:09.045892" elapsed="1.637504"/>
 </kw>
-<arg>${menuPage}</arg>
-<arg>${EXCEPTION_NAME}</arg>
-<arg>${PASSWORD}</arg>
-<doc>This keyword checks if page is the named password protected page and inputs password</doc>
-<status status="PASS" start="2024-06-07T16:50:31.534971" elapsed="0.006662"/>
+<kw name="Wait For Location And Click Image" owner="WebUi">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Locate" owner="ImageHorizonLibrary">
+<msg time="2024-06-07T19:09:11.495621" level="FAIL">ImageNotFoundException</msg>
+<arg>${image}</arg>
+<doc>Locate image on screen.</doc>
+<status status="FAIL" start="2024-06-07T19:09:10.691959" elapsed="0.805700">ImageNotFoundException</status>
 </kw>
-<kw name="Wait For Element" owner="WebUi">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${element}</arg>
+<kw name="Locate" owner="ImageHorizonLibrary">
+<msg time="2024-06-07T19:09:12.302609" level="INFO">Image "C:\Users\emili\OneDrive\Dokumenty\robot\Robot\MeritoRobot\labs\images\yesdelete.png" found at Box(left=1336, top=606, width=322, height=67)</msg>
+<arg>${image}</arg>
+<doc>Locate image on screen.</doc>
+<status status="PASS" start="2024-06-07T19:09:11.597942" elapsed="0.706065"/>
+</kw>
 <arg>10s</arg>
 <arg>0.1s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:31.542884" elapsed="1.024751"/>
+<arg>Locate</arg>
+<arg>${image}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2024-06-07T19:09:10.689962" elapsed="1.614045"/>
 </kw>
-<arg>${properHeader}</arg>
-<doc>This keyword waits stated time for an element based on its location</doc>
-<status status="PASS" start="2024-06-07T16:50:31.541633" elapsed="1.026002"/>
+<kw name="Click Image" owner="ImageHorizonLibrary">
+<msg time="2024-06-07T19:09:12.834327" level="INFO">Image "C:\Users\emili\OneDrive\Dokumenty\robot\Robot\MeritoRobot\labs\images\yesdelete.png" found at Box(left=1336, top=606, width=322, height=67)</msg>
+<msg time="2024-06-07T19:09:12.839176" level="INFO">Clicking image "yesDelete.png" in position (1497, 639)</msg>
+<arg>${image}</arg>
+<doc>Finds the reference image on screen and clicks it once.</doc>
+<status status="PASS" start="2024-06-07T19:09:12.304007" elapsed="0.642108"/>
 </kw>
-<arg>menuPage=Claim</arg>
-<arg>expectedHeader=Claim</arg>
-<doc>This keyword clicks one by one on certain menu pages' names imported from given xlsx file
-and checks if their header are as expected headers imported from xlsx file</doc>
-<status status="PASS" start="2024-06-07T16:50:30.057675" elapsed="2.511037"/>
+<arg>${confirmationButton}</arg>
+<doc>This keyword waits to locate given image and then clicks on it</doc>
+<status status="PASS" start="2024-06-07T19:09:10.685139" elapsed="2.262020"/>
 </kw>
-<status status="PASS" start="2024-06-07T16:50:30.046763" elapsed="2.522949"/>
+<kw name="Wait Until Page Does Not Contain" owner="SeleniumLibrary">
+<arg>${TEXT}</arg>
+<arg>10s</arg>
+<arg>0.1s</arg>
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<status status="PASS" start="2024-06-07T19:09:12.949858" elapsed="0.681627"/>
+</kw>
+<doc>This keyword deletes previously written text and checks if it's deleted</doc>
+<status status="PASS" start="2024-06-07T19:09:08.719329" elapsed="4.913171"/>
+</kw>
+<arg>Go To Posting Section</arg>
+<arg>Write And Post Something</arg>
+<arg>Delete Post</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2024-06-07T19:08:54.869256" elapsed="18.763244"/>
+</kw>
+<doc>This keyword goes to posting section, inputs and posts text then delets it</doc>
+<status status="PASS" start="2024-06-07T19:08:54.850453" elapsed="18.782922"/>
+</kw>
+<status status="PASS" start="2024-06-07T19:08:53.176360" elapsed="20.471516"/>
 </test>
-<test id="s1-t12" name="Click_on_the_page_Buzz_and_check_header_Buzz" line="10">
-<kw name="Click On Menu Page And Check Header">
+<test id="s1-t6" name="logout" line="24">
+<kw name="Go To Website" owner="WebUi" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:09:13.666314" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com'</msg>
+<arg>${WEBSITE}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-07T19:09:13.664028" elapsed="1.805075"/>
+</kw>
+<doc>This keywords opens given website</doc>
+<status status="PASS" start="2024-06-07T19:09:13.659737" elapsed="1.810365"/>
+</kw>
+<kw name="Logout User" owner="WebUi">
 <kw name="Wait For Element And Click" owner="WebUi">
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${element}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:32.580711" elapsed="0.023844"/>
+<status status="PASS" start="2024-06-07T19:09:15.473802" elapsed="0.659436"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-06-07T16:50:32.607314" level="INFO">Clicking element '//span[text()="Buzz"]'.</msg>
+<msg time="2024-06-07T19:09:16.134653" level="INFO">Clicking element '//p[@class='oxd-userdropdown-name']'.</msg>
 <arg>${element}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-06-07T16:50:32.606271" elapsed="1.061136"/>
+<status status="PASS" start="2024-06-07T19:09:16.134236" elapsed="0.347624"/>
 </kw>
-<arg>${menuNavigator}</arg>
+<arg>${userOptions}</arg>
 <doc>This keyword waits stated time for an element based on its location
 then it clicks this element</doc>
-<status status="PASS" start="2024-06-07T16:50:32.579295" elapsed="1.088112"/>
+<status status="PASS" start="2024-06-07T19:09:15.472801" elapsed="1.009059"/>
 </kw>
-<kw name="Input Password For Password Protected Page">
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>10s</arg>
-<arg>0.1s</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:33.668407" elapsed="0.001302"/>
+<kw name="Wait For Element And Click" owner="WebUi">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-07T19:09:16.483522" elapsed="0.009833"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Input Text</arg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:33.670706" elapsed="0.000000"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-07T19:09:16.494685" level="INFO">Clicking element '//a[@href="/web/index.php/auth/logout"]'.</msg>
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-07T19:09:16.493656" elapsed="1.353139"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>"${menuPage}" == "${EXCEPTION_NAME}"</arg>
-<arg>Click Button</arg>
-<arg>${SUBMIT_BUTTON}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2024-06-07T16:50:33.671889" elapsed="0.001000"/>
-</kw>
-<arg>${menuPage}</arg>
-<arg>${EXCEPTION_NAME}</arg>
-<arg>${PASSWORD}</arg>
-<doc>This keyword checks if page is the named password protected page and inputs password</doc>
-<status status="PASS" start="2024-06-07T16:50:33.667407" elapsed="0.005892"/>
+<arg>${logoutButton}</arg>
+<doc>This keyword waits stated time for an element based on its location
+then it clicks this element</doc>
+<status status="PASS" start="2024-06-07T19:09:16.481860" elapsed="1.364935"/>
 </kw>
 <kw name="Wait For Element" owner="WebUi">
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
@@ -920,34 +927,31 @@ then it clicks this element</doc>
 <arg>10s</arg>
 <arg>0.1s</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2024-06-07T16:50:33.675304" elapsed="0.553997"/>
+<status status="PASS" start="2024-06-07T19:09:17.847717" elapsed="0.530705"/>
 </kw>
-<arg>${properHeader}</arg>
+<arg>${SUBMIT_BUTTON}</arg>
 <doc>This keyword waits stated time for an element based on its location</doc>
-<status status="PASS" start="2024-06-07T16:50:33.674300" elapsed="0.556000"/>
+<status status="PASS" start="2024-06-07T19:09:17.847717" elapsed="0.530705"/>
 </kw>
-<arg>menuPage=Buzz</arg>
-<arg>expectedHeader=Buzz</arg>
-<doc>This keyword clicks one by one on certain menu pages' names imported from given xlsx file
-and checks if their header are as expected headers imported from xlsx file</doc>
-<status status="PASS" start="2024-06-07T16:50:32.578298" elapsed="1.652002"/>
+<doc>This keyword logs out and checks if the logout succeeded</doc>
+<status status="PASS" start="2024-06-07T19:09:15.470102" elapsed="2.908320"/>
 </kw>
-<status status="PASS" start="2024-06-07T16:50:32.572579" elapsed="1.657721"/>
+<status status="PASS" start="2024-06-07T19:09:13.653875" elapsed="4.729027"/>
 </test>
 <kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2024-06-07T16:50:34.252615" elapsed="9.899159"/>
+<status status="PASS" start="2024-06-07T19:09:18.405619" elapsed="11.201222"/>
 </kw>
-<status status="PASS" start="2024-06-07T16:49:32.137830" elapsed="72.014945"/>
+<status status="PASS" start="2024-06-07T19:08:11.729673" elapsed="77.878168"/>
 </suite>
 <statistics>
 <total>
-<stat pass="12" fail="0" skip="0">All Tests</stat>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="12" fail="0" skip="0" id="s1" name="WebUiDataDriver">WebUiDataDriver</stat>
+<stat pass="6" fail="0" skip="0" id="s1" name="WebUiHRM">WebUiHRM</stat>
 </suite>
 </statistics>
 <errors>
